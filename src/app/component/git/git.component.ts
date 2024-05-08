@@ -9,5 +9,6 @@ export class GitComponent {
 
 
 
-  message:string=" Hay Buddy"
+  message:string=" Hay Buddy";
+  sunlight:string="light"
 }
