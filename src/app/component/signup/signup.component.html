@@ -1,0 +1,50 @@
+<p>signup works!</p>
+<div class="row p-2">
+    <p class="text-danger fs-6" *ngIf=" isotpinvalid">Please Enter Valid Otp</p>
+    <p class="text-danger fs-6" *ngIf="isotpverified">Mobile Verification is Mandatory</p>
+
+    <form #userRegForm="ngForm" (ngSubmit)="signUp()">
+        <div class="mb-3">
+            <label for="id1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="id1" name="name" [(ngModel)]="userobj.name" required>
+        </div>
+
+        <label for="id6" class="form-label">Mobile Number</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="" aria-label="Recipient's username"
+            name="mobileNo" [(ngModel)]="userobj.mobile" required maxlength="10" minlength="10">
+            <span *ngIf="!isotpverified"  class="input-group-text cursor bg-primary text-light" id="id6" (click)="GetOtp()">GetOtp</span>
+            <span *ngIf="isotpverified"    class="input-group-text"><i class="bi bi-check-circle fs-5 text-success"></i></span>
+        </div>
+        <ng-container *ngIf="DisplayOtpField">
+            <label for="id7"  class="form-label">EnterOtp</label>
+            <div class="input-group mb-3" >
+                <input type="text" class="form-control" placeholder="" name="otp" [(ngModel)]="OtpEntered" required="6">
+                <span class="input-group-text cursor bg-primary text-light" id="id7" (click)="verifyOtp()">verifyOtp</span>
+                
+            </div>
+    <p class="fs-6">Otp is valid For <strong>{{otpTimer}}sec</strong></p>
+        </ng-container>
+        
+        <div class="mb-3">
+            <label for="id3" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="id3" name="Email" [(ngModel)]="userobj.email" required>
+        </div>
+        <div class="mb-3">
+            <label for="id4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="id4" name="Pass" [(ngModel)]="userobj.password" required>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" disabled="userRegForm.invalid"  type="submit">SignUp</button>
+
+        </div>
+    </form>
+</div>
+
+
+
+<!-- <div class="mb-3"*ngIf="DisplayOtpField">
+    <label for="id2" class="form-label" >Enter Otp</label>
+    <input type="text" class="form-control" id="id2" >
+  </div> -->
