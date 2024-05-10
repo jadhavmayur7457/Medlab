@@ -13,6 +13,7 @@ import{BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ProductByCategoriesComponent } from './component/product-by-categories/product-by-categories.component';
 import { GitComponent } from './component/git/git.component';
+import { MayurComponent } from './mayur/mayur.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { GitComponent } from './component/git/git.component';
    TopDealComponent,
    ProductByCategoriesComponent,
    GitComponent,
+   MayurComponent,
 
   ],
   imports: [
